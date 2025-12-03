@@ -1,4 +1,2 @@
 boto3
-botocore
-urllib3
-requests
+pydub
