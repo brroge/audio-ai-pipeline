@@ -2,8 +2,8 @@ name: Audio Processing Pipeline
 
 on:
   push:
-    paths:
-      - "audio_inputs/**"
+    branches:
+      - main
 
 jobs:
   process-audio:
@@ -18,10 +18,15 @@ jobs:
       with:
         python-version: "3.11"
 
+    - name: Verify workspace location
+      run: pwd && ls -al
+
     - name: Install dependencies
+      working-directory: ${{ github.workspace }}
       run: pip install -r ./requirements.txt
 
     - name: Run processing script
+      working-directory: ${{ github.workspace }}
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
