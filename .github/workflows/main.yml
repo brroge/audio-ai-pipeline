@@ -2,8 +2,8 @@ name: Audio Processing Pipeline
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - "audio_inputs/**"
 
 jobs:
   process-audio:
