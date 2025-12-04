@@ -19,7 +19,7 @@ jobs:
         python-version: "3.11"
 
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: pip install -r ./requirements.txt
 
     - name: Run processing script
       env:
@@ -27,4 +27,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         S3_BUCKET: ${{ secrets.S3_BUCKET }}
-      run: python process_audio.py
+      run: python ./process_audio.py
